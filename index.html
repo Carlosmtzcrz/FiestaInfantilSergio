@@ -1271,38 +1271,6 @@
             window.open(calUrl, '_blank', 'noopener,noreferrer');
         }
 
-        /* ----------------------------------------------------------
-         * 6. COMPARTIR INVITACIÓN Y GENERADOR DE PORTADA (1200x630)
-         * ---------------------------------------------------------- */
-        function copyInviteTextWithLink() {
-            const pageUrl = window.location.href;
-            const shareText = `🏎️🏁 *¡ESTÁS INVITADO AL CUMPLEAÑOS #6 DE SERGIO!* 🏁🏎️\n\n📅 *Viernes 6 de noviembre*\n🕓 *A partir de las 4:00 PM*\n📍 *Salón de fiestas MundoXtremo*\n\nMira la invitación interactiva, el mapa y confirma tu asistencia aquí 👇\n${pageUrl}`;
-
-            const tempArea = document.createElement('textarea');
-            tempArea.value = shareText;
-            document.body.appendChild(tempArea);
-            tempArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempArea);
-
-            showToast("✅ ¡Mensaje de invitación + enlace copiado para WhatsApp!");
-        }
-
-        function shareInvitationLink() {
-            const pageUrl = window.location.href;
-            const shareText = `🏎️🏁 *¡ESTÁS INVITADO AL CUMPLEAÑOS #6 DE SERGIO!* 🏁🏎️\n\n📅 *Viernes 6 de noviembre*\n🕓 *A partir de las 4:00 PM*\n📍 *Salón de fiestas MundoXtremo*\n\nEntra a la invitación interactiva aquí 👇\n${pageUrl}`;
-
-            if (navigator.share) {
-                navigator.share({
-                    title: '🏎️ Cumpleaños #6 de SERGIO',
-                    text: '¡Te invito a celebrar mis 6 años este viernes 6 de noviembre a las 4:00 PM en MundoXtremo!',
-                    url: pageUrl
-                }).catch(() => {});
-            } else {
-                const waShareUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
-                window.open(waShareUrl, '_blank', 'noopener,noreferrer');
-            }
-        }
 
         function downloadCustomOGBanner() {
             const ogCanvas = document.getElementById('og-banner-canvas');
